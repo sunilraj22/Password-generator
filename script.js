@@ -65,17 +65,16 @@ function calcStrength() {
     if (numbersCheck.checked) hasNum = true;
     if (symbolsCheck.checked) hasSym = true;
   
-    if (hasUpper && hasLower && (hasNum || hasSym) && passwordLength >= 8) {
-        setIndicator("#0f0");
-      } else if (
-        (hasLower || hasUpper) &&
-        (hasNum || hasSym) &&
-        passwordLength >= 6
-      ) {
-        setIndicator("#ff0");
-      } else {
-        setIndicator("#f00");
-      }
+if (hasUpper && hasLower && hasNum && hasSym && passwordLength >= 12) {
+  setIndicator("#0f0"); // Strong (green) - Contains upper, lower, number, symbol, and length is 12 or more
+} else if ((hasUpper || hasLower) && hasNum && hasSym && passwordLength >= 10) {
+  setIndicator("#ff0"); // Medium (yellow) - Contains either upper or lower case, numbers, symbols, and length is 10 or more
+} else if ((hasUpper || hasLower) && (hasNum || hasSym) && passwordLength >= 8) {
+  setIndicator("#ffa500"); // Weak (orange) - Contains either upper/lower, numbers/symbols, and length is 8 or more
+} else {
+  setIndicator("#f00"); // Very weak (red) - Does not meet minimum requirements
+}
+
 }
 
 async function copyContent(){
