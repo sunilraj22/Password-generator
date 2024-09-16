@@ -66,16 +66,16 @@ function calcStrength() {
     if (symbolsCheck.checked) hasSym = true;
   
     if (hasUpper && hasLower && (hasNum || hasSym) && passwordLength >= 8) {
-      setIndicator("#0f0");
-    } else if (
-      (hasLower || hasUpper) &&
-      (hasNum || hasSym) &&
-      passwordLength >= 6
-    ) {
-      setIndicator("#ff0");
-    } else {
-      setIndicator("#f00");
-    }
+        setIndicator("#0f0");
+      } else if (
+        (hasLower || hasUpper) &&
+        (hasNum || hasSym) &&
+        passwordLength >= 6
+      ) {
+        setIndicator("#ff0");
+      } else {
+        setIndicator("#f00");
+      }
 }
 
 async function copyContent(){
